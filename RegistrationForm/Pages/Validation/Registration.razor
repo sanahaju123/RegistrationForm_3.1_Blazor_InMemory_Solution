@@ -1,9 +1,9 @@
 ﻿@page "/registration-form"
-@using RegistrationForm.FormModels.Validation;
+@using RegistrationForm.FormModels.Validation
 @inject NavigationManager NavigationManager
 
 <h3>Registration Form</h3>
-<EditForm Model="FormModel" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="@FormModel" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="form-group">
@@ -38,13 +38,13 @@
 </EditForm>
 
 @code {
-    public RegisterDataFormModel FormModel { get; set; }
+    private RegisterDataFormModel FormModel = new RegisterDataFormModel();
 
     public void HandleValidSubmit()
     {
-    // Perform form submission logic here
-    // This method is called when the form is submitted and all validation rules pass
-    // Redirect to a new page after submission
+        // Perform form submission logic here
+        // This method is called when the form is submitted and all validation rules pass
+        // Redirect to a new page after submission
         NavigationManager.NavigateTo("/submission");
     }
 }
